@@ -19,16 +19,18 @@ void FillArrWithRandNumbers(int arr[100], int &length)
 	}
 }
 
-void addArrayElement(int arr[100], int length, int &element)
+void addArrayElement(int arr[100], int &length, int &element)
 {
+	length++;
 	arr[length - 1] = element;
 }
 
-void copyArray(int arr1[100], int arr2[100], int length)
+void copyArray(int arr1[100], int arr2[100], int length, int length2)
 {
 	for (int i = 0; i <length ; i++)
 	{
-		addArrayElement(arr2, (i + 1), arr1[i]);
+		//addArrayElement(arr2, (i + 1), arr1[i]);
+		addArrayElement(arr2, length2, arr1[i]);
 	}
 }
 
@@ -47,12 +49,12 @@ int main()
 {
 	srand((unsigned)time(NULL));
 
-	int arr1[100], arr2[100], length;
+	int arr1[100], arr2[100], length, length2=0;
 
 	FillArrWithRandNumbers(arr1, length);
 	printArray(arr1, length);
 		
-	copyArray(arr1, arr2, length);
+	copyArray(arr1, arr2, length, length2);
 	printArray(arr2, length);
 
 
